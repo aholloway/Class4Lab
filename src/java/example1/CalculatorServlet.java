@@ -36,20 +36,19 @@ public class CalculatorServlet extends HttpServlet {
         String strX = request.getParameter("x").toString();
         String strY = request.getParameter("y").toString();
         
-        int intX= Integer.parseInt(strX);
-        int intY= Integer.parseInt(strY);
         
         try {
+            response.sendRedirect("page2.jsp");
             /* TODO output your page here. You may use following sample code. */
-            out.println("<html>");
+            /*out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet CalculatorServlet</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet GreetingServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Your answer is  " + intX * intY + "</h1>");
+            out.println("<h1>Your answer is  " + Integer.parseInt(strX) * Integer.parseInt(strY) + "</h1>");
             out.println("</body>");
-            out.println("</html>");
+            out.println("</html>");*/
         } finally {            
             out.close();
         }
