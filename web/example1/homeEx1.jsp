@@ -13,7 +13,7 @@
     </head>
     <body>
         <h1>Choose a form!</h1>
-        <form><img border="0" src="\images\rectangle.jpg" alt="Rectangle" width="304" height="228"></form>
+        <form><img border="0" src="/images/rectangle.jpg" alt="Rectangle" width="304" height="228"></form>
         
         <form></form>
         <form></form>
