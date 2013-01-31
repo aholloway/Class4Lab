@@ -13,7 +13,14 @@
     </head>
     <body>
         <h1>Choose a form!</h1>
-        <form><img border="0" src="/images/rectangle.jpg" alt="Rectangle" width="304" height="228"></form>
+        <img border="0" src="images/rectangle.jpg" alt="Rectangle" width="304" height="228">
+        <p>Enter x and y to get the area!</p>
+        <form action="CalculatorServlet" method="POST">
+            x: <input type="text" name="firstName" size="20"><br />
+            y: <input type="text" name="lastName" size="20">
+            <br /><br />
+            <input type="submit" value="Submit">
+        </form>
         
         <form></form>
         <form></form>
