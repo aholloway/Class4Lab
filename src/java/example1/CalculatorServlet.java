@@ -6,6 +6,7 @@ package example1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,6 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
 public class CalculatorServlet extends HttpServlet {
+    private static final String destination = "example1/page2.jsp";
 
     /**
      * Processes requests for both HTTP
@@ -38,7 +40,18 @@ public class CalculatorServlet extends HttpServlet {
         
         
         try {
-            response.sendRedirect("page2.jsp");
+            // We can retrieve these from named form elements or as QueryString parameters (in URL)
+            String x = request.getParameter("x");
+            // But we can store them in the request object as "attributes"
+            request.setAttribute("x", x);
+            String y = request.getParameter("y");
+            request.setAttribute("y", y);   
+
+            // Now can forward the request and response objects to the destination page,
+            // so long as it's a JSP or Servlet
+            RequestDispatcher dispatcher =
+                        getServletContext().getRequestDispatcher(destination);
+                    dispatcher.forward(request, response);
             /* TODO output your page here. You may use following sample code. */
             /*out.println("<html>");
             out.println("<head>");

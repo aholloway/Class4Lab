@@ -16,11 +16,11 @@
         <h1>The Servlet Redirected You Here!</h1>
         <p>Notice the parameters DID NOT come along for the ride!</p>
         <%
-            Object param1 = request.getParameter("param1");
-            Object param2 = request.getParameter("param2");
+            Object x = request.getParameter("x");
+            Object y = request.getParameter("y");
             List<Object> myParams = new ArrayList<Object>();
-            myParams.add(param1);
-            myParams.add(param2);
+            myParams.add(x);
+            myParams.add(y);
             
             for(Object param : myParams) {
                 if(param != null) {
