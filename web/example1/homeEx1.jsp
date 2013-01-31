@@ -13,16 +13,40 @@
     </head>
     <body>
         <h1>Choose a form!</h1>
+        
         <img border="0" src="images/rectangle.jpg" alt="Rectangle" width="304" height="228">
+        
         <p>Enter x and y to get the area!</p>
-        <form action="CalculatorServlet" method="POST">
-            x: <input type="text" name="firstName" size="20"><br />
-            y: <input type="text" name="lastName" size="20">
-            <br /><br />
+        
+        <form action="/Class4Lab/CalculatorServlet" method="POST">
+            x: <input type="text" name="x" size="20"><br />
+            y: <input type="text" name="y" size="20">
+            <br />
+            <br />
             <input type="submit" value="Submit">
         </form>
         
-        <form></form>
-        <form></form>
+        </br>
+        
+        <img border="0" src="images/circle.jpg" alt="Circle" width="228" height="228">
+        
+        <form action="/Class4Lab/CalculatorServlet" method="POST">
+            r: <input type="text" name="r" size="20"><br />
+            <br />
+            <br />
+            <input type="submit" value="Submit">
+        </form>
+        
+        </br>
+        
+        <img border="0" src="images/Rt Triangle.PNG" alt="Rt Triangle" width="304" height="228">
+        
+        <form action="/Class4Lab/CalculatorServlet" method="POST">
+            x: <input type="text" name="firstName" size="20"><br />
+            y: <input type="text" name="lastName" size="20">
+            <br />
+            <br />
+            <input type="submit" value="Submit">
+        </form>
     </body>
 </html>
