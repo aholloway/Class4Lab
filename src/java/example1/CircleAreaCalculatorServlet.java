@@ -6,7 +6,6 @@ package example1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -38,6 +37,8 @@ public class CircleAreaCalculatorServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         
         try {
+            
+            request.setAttribute("calculation","rectangle area");
          
             String r = request.getParameter("r");
             

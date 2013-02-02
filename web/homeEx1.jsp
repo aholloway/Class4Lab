@@ -10,6 +10,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Example 1</title>
+        <style>
+            <!--
+            .tab { margin-left: 40px; }
+            -->
+        </style>
     </head>
     <body>
         <h1>Example 1 Home</h1>
@@ -18,11 +23,11 @@
         </br>
         <img border="0" src="images/rectangle.jpg" alt="Rectangle" width="304" height="228">
         
-        <p>Enter x and y to get the area!</p>
+        <p>Enter x and y to get the area of a rectangle!</p>
         
         <form action="RectangleAreaCalculatorServlet" method="POST">
-            x: <input type="text" name="x" size="20"><br />
-            y: <input type="text" name="y" size="20">
+            <p class="tab">x: <input type="text" name="x" size="10"></p>
+            <p class="tab">y: <input type="text" name="y" size="10"></p>
             <br />
             <br />
             <input type="submit" value="Submit">
@@ -32,8 +37,10 @@
         
         <img border="0" src="images/circle.jpg" alt="Circle" width="228" height="228">
         
+        <p>Enter r to get the area of a circle!</p>
+        
         <form action="CircleAreaCalculatorServlet" method="POST">
-            r: <input type="text" name="r" size="20"><br />
+            <p class="tab">r: <input type="text" name="r" size="5"></p>
             <br />
             <br />
             <input type="submit" value="Submit">
@@ -43,9 +50,12 @@
         
         <img border="0" src="images/Rt Triangle.PNG" alt="Rt Triangle" width="304" height="228">
         
+        <p>Enter 2 of the below to get the value of the third side!</p>
+        
         <form action="RtAngleSideCalculatorServlet" method="POST">
-            x: <input type="text" name="firstName" size="20"><br />
-            y: <input type="text" name="lastName" size="20">
+            <p class="tab">a: <input type="text" name="a" size="5"></p>
+            <p class="tab">b: <input type="text" name="b" size="5"></p>
+            <p class="tab">c: <input type="text" name="c" size="5"></p>
             <br />
             <br />
             <input type="submit" value="Submit">

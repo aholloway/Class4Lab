@@ -6,7 +6,6 @@ package example1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,23 +38,98 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
         
         try {
          
-            String x = request.getParameter("x");
+            request.setAttribute("calculation","right angle");
+            request.setAttribute("side", null);
             
-            String y = request.getParameter("y");
+            String strA = request.getParameter("a");
             
-            int area = Integer.parseInt(x)*Integer.parseInt(y);
-                  
-            request.setAttribute("area", area);
-              
-            RequestDispatcher dispatcher =
-                        getServletContext().getRequestDispatcher(destination);
-                    dispatcher.forward(request, response);
+            String strB = request.getParameter("b");
+            
+            String strC = request.getParameter("c");
+            
+            int nullCount=0;
+            char nullParam=' ';
+            double a = 0.0;
+            double b = 0.0;
+            double c = 0.0;
+            
+            
+            // need to determine which parameters are not null
+            if (strA==null){
+                nullParam='a';
+                nullCount++; 
+                
+            }
+            
+            if (strB==null){
+                nullParam='b';
+                nullCount++;  
+                
+            }
+            
+            if (strC==null){
+                nullParam='c';
+                nullCount++;    
+            }
+            
+            
+            // if null count does not equal 2, then the wrong number of parameters
+            // were entered
+            if (nullCount!=2){
+                forward(request,response);
+            } else {
+
+                // if exactly two are null, we need to know which parmaeter is 
+                // null and solve for it.  In this situation, we are going to 
+                // assume that the first null parameter is the only null parameter.
+
+
+
+                double side = 0.0;
+                
+                switch (nullParam){
+                    // solve for a
+                    // a = sq rt ( c^2 - b^2 )
+                    case 'a':
+                        b = Double.valueOf(strB);
+                        c = Double.valueOf(strC);
+                        side = Math.sqrt(Math.pow(c,2)- Math.pow(b, 2));
+                    break;
+                    // solve for b
+                    // b = sq rt ( c^2 - a^2 )
+                    case 'b':
+                        a = Double.valueOf(strA);
+                        c = Double.valueOf(strC);
+                        side = Math.sqrt(Math.pow(c,2)- Math.pow(a, 2));
+                    break;
+                    // solve for c
+                    // c = sq rt ( a^2 + b^2 )
+                    case 'c':
+                        a = Double.valueOf(strA);
+                        b = Double.valueOf(strB);
+                        side = Math.sqrt(Math.pow(a,2) + Math.pow(b, 2));
+                    break;
+                        
+                    
+                }
+
+                request.setAttribute("side", side);
+                
+
+                forward(request,response);
+            }
             
         } finally {            
             out.close();
         }
     }
 
+    protected void forward(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        RequestDispatcher dispatcher =
+                        getServletContext().getRequestDispatcher(destination);
+                    dispatcher.forward(request, response);
+    }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP
