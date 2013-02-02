@@ -20,7 +20,7 @@
         
         <p>Enter x and y to get the area!</p>
         
-        <form action="CalculatorServlet" method="POST">
+        <form action="RectangleAreaCalculatorServlet" method="POST">
             x: <input type="text" name="x" size="20"><br />
             y: <input type="text" name="y" size="20">
             <br />
@@ -32,7 +32,7 @@
         
         <img border="0" src="images/circle.jpg" alt="Circle" width="228" height="228">
         
-        <form action="CalculatorServlet" method="POST">
+        <form action="CircleAreaCalculatorServlet" method="POST">
             r: <input type="text" name="r" size="20"><br />
             <br />
             <br />
@@ -43,7 +43,7 @@
         
         <img border="0" src="images/Rt Triangle.PNG" alt="Rt Triangle" width="304" height="228">
         
-        <form action="CalculatorServlet" method="POST">
+        <form action="RtAngleSideCalculatorServlet" method="POST">
             x: <input type="text" name="firstName" size="20"><br />
             y: <input type="text" name="lastName" size="20">
             <br />

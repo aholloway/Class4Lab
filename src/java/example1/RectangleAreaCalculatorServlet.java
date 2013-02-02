@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Drew
  */
-@WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
+@WebServlet(name = "RectangleAreaCalculatorServlet", urlPatterns = {"/RectangleAreaCalculatorServlet"})
 public class RectangleAreaCalculatorServlet extends HttpServlet {
     private static final String destination = "/answerPage.jsp";
 

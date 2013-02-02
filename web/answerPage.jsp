@@ -19,13 +19,20 @@
             
 
             Object x = request.getParameter("x");
+            Object r = request.getParameter("r");
+            if(x==null){
+                Object area = request.getAttribute("area");
+                out.println("<p>A circle with radius " + r + 
+                        " will have an area of " + area + "</p>");
+            }else{
+            
             Object y = request.getParameter("y");
 
             Object area = request.getAttribute("area");
             
             out.println("<p>A rectangle with length " + x + " and width " + y + 
                     " will have an area of " + area + "</p>");
-
+                       }
         %>
 
         <p><a href="homeEx1.jsp">Return to Example 1 Home</a></p>
