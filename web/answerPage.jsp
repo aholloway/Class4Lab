@@ -1,7 +1,7 @@
 <%-- 
-    Document   : page2
-    Created on : Sep 15, 2011, 10:09:05 AM
-    Author     : jlombardo
+    Document   : answerPage
+    Created on : 2/2/2013
+    Author     : aholloway
 --%>
 
 <%@page import="example1.CalculationType"%>
@@ -41,6 +41,15 @@
                 break;
                 case RT_ANGLE_SIDE:
                      out.println("<h2>Right Angle Side Calculation</h2>");
+                     Object sideLength = request.getAttribute("sideLength");
+                     if (sideLength ==null){
+                         out.println("<p>Please select only two sides and I "
+                            + "will solve for the thrid</p>");
+                     } else {
+                         out.println("<p>The length of the third side is "+
+                                 sideLength +"</p>");
+                     }
+                     
                 break;
                 
             }

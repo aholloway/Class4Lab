@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * @author aholloway
+ * @created 2/2/13
+ * @version 1.01 
  */
 package example1;
 
@@ -39,13 +40,13 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
         try {
          
             request.setAttribute("calculationType",CalculationType.RT_ANGLE_SIDE);
-            request.setAttribute("side", null);
+            request.setAttribute("sideLength", null);
             
-            String strA = request.getParameter("a");
+            String strA = (String)request.getParameter("a");
             
-            String strB = request.getParameter("b");
+            String strB = (String)request.getParameter("b");
             
-            String strC = request.getParameter("c");
+            String strC = (String)request.getParameter("c");
             
             int nullCount=0;
             char nullParam=' ';
@@ -58,20 +59,28 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
             if (strA==null){
                 nullParam='a';
                 nullCount++; 
+                System.out.println("strA is null");
                 
             }
             
             if (strB==null){
                 nullParam='b';
                 nullCount++;  
+                System.out.println("strB is null");
                 
             }
             
             if (strC==null){
                 nullParam='c';
-                nullCount++;    
+                nullCount++;  
+                System.out.println("strC is null");
             }
             
+            System.out.println("strA: " +strA);
+            System.out.println("strB: " +strB);
+            System.out.println("strC: " +strC);
+            System.out.println("nullparam: "+nullParam);
+            System.out.println("nullCount: " +nullCount);
             
             // if null count does not equal 2, then the wrong number of parameters
             // were entered
@@ -85,7 +94,7 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
 
 
 
-                double side = 0.0;
+                double sideLength = 0.0;
                 
                 switch (nullParam){
                     // solve for a
@@ -93,27 +102,28 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
                     case 'a':
                         b = Double.valueOf(strB);
                         c = Double.valueOf(strC);
-                        side = Math.sqrt(Math.pow(c,2)- Math.pow(b, 2));
+                        sideLength = Math.sqrt(Math.pow(c,2)- Math.pow(b, 2));
                     break;
                     // solve for b
                     // b = sq rt ( c^2 - a^2 )
                     case 'b':
                         a = Double.valueOf(strA);
                         c = Double.valueOf(strC);
-                        side = Math.sqrt(Math.pow(c,2)- Math.pow(a, 2));
+                        sideLength = Math.sqrt(Math.pow(c,2)- Math.pow(a, 2));
                     break;
                     // solve for c
                     // c = sq rt ( a^2 + b^2 )
                     case 'c':
                         a = Double.valueOf(strA);
                         b = Double.valueOf(strB);
-                        side = Math.sqrt(Math.pow(a,2) + Math.pow(b, 2));
+                        sideLength = Math.sqrt(Math.pow(a,2) + Math.pow(b, 2));
                     break;
                         
                     
                 }
+                System.out.println(sideLength);
 
-                request.setAttribute("side", side);
+                request.setAttribute("sideLength", sideLength);
                 
 
                 forward(request,response);

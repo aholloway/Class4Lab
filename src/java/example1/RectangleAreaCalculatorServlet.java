@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * @author aholloway
+ * @created 2/2/13
+ * @version 1.01 
  */
 package example1;
 
