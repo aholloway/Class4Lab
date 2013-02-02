@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
 public class CalculatorServlet extends HttpServlet {
-    private static final String destination = "example1/page2.jsp";
+    private static final String destination = "page2.jsp";
 
     /**
      * Processes requests for both HTTP
