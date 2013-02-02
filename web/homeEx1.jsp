@@ -12,8 +12,10 @@
         <title>Example 1</title>
     </head>
     <body>
-        <h1>Choose a form!</h1>
-        
+        <h1>Example 1 Home</h1>
+        <h2>Choose a form!</h2>
+        <hr>
+        </br>
         <img border="0" src="images/rectangle.jpg" alt="Rectangle" width="304" height="228">
         
         <p>Enter x and y to get the area!</p>

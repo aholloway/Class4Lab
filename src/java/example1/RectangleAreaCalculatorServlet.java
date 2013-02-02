@@ -39,13 +39,11 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
         try {
          
             String x = request.getParameter("x");
-            // But we can store them in the request object as "attributes"
-            request.setAttribute("x", x);
+            
+            
             String y = request.getParameter("y");
-            request.setAttribute("y", y);   
-
-            // Now can forward the request and response objects to the destination page,
-            // so long as it's a JSP or Servlet
+            request.setAttribute("area", Integer.parseInt(x)*Integer.parseInt(y));
+              
             RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(destination);
                     dispatcher.forward(request, response);
