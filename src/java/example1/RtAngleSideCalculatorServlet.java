@@ -54,6 +54,14 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
             double b = 0.0;
             double c = 0.0;
             
+            Object objC=request.getParameter("c");
+            if (objC==null){
+                nullParam='a';
+                nullCount++; 
+                System.out.println("objC is null");
+                
+            }
+            
             
             // need to determine which parameters are not null
             if (strA==null){
@@ -79,6 +87,10 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
             System.out.println("strA: " +strA);
             System.out.println("strB: " +strB);
             System.out.println("strC: " +strC);
+            System.out.println(strC);
+            if (strC==null){
+                System.out.println("strC is null");
+            }
             System.out.println("nullparam: "+nullParam);
             System.out.println("nullCount: " +nullCount);
             
