@@ -6,6 +6,7 @@ package example1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.*;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,6 +50,12 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
             System.out.println(x);
             System.out.println(y);
             request.setAttribute("area", area);
+            request.setAttribute("x",x);
+            request.setAttribute("y",y);
+            
+            List areas = new ArrayList();
+            areas.add(area);
+            request.setAttribute("areas", areas);
               
             RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(destination);

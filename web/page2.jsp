@@ -16,9 +16,16 @@
         <h1>Answer Page</h1>
         <br>
         <%
-            Object area = request.getParameter("area");
-            System.out.println(area);
+            
+            //System.out.println(area);
             System.out.println(request.getParameter("area"));
+            Object x = request.getParameter("x");
+            Object y = request.getParameter("y");
+            out.println("<p>The value of x is " + x + "</p>");
+            out.println("<p>The value of y is " + y + "</p>");
+            Object area = request.getParameter("area");
+            Object areas= request.getParameter("areas");
+            System.out.println(areas.toString());
 
 
 
