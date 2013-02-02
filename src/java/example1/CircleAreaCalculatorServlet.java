@@ -38,13 +38,13 @@ public class CircleAreaCalculatorServlet extends HttpServlet {
         
         try {
             
-            request.setAttribute("calculation","rectangle area");
+            request.setAttribute("calculationType",CalculationType.CIRCLE_AREA);
          
             String r = request.getParameter("r");
             
             double area = 3.14159265359*Math.pow(Double.parseDouble(r),2);
                   
-            request.setAttribute("area", area);
+            request.setAttribute("circleArea", area);
               
             RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(destination);

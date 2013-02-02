@@ -38,7 +38,7 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
         
         try {
             
-            request.setAttribute("calculation","rectangle area");
+            request.setAttribute("calculationType",CalculationType.RECTANGLE_AREA);
             
             String x = request.getParameter("x");
             
@@ -46,7 +46,7 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
             
             int area = Integer.parseInt(x)*Integer.parseInt(y);
                   
-            request.setAttribute("area", area);
+            request.setAttribute("rectangleArea", area);
               
             RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(destination);

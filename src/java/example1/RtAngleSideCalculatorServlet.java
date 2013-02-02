@@ -38,7 +38,7 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
         
         try {
          
-            request.setAttribute("calculation","right angle");
+            request.setAttribute("calculationType",CalculationType.RT_ANGLE_SIDE);
             request.setAttribute("side", null);
             
             String strA = request.getParameter("a");
