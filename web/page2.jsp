@@ -31,6 +31,6 @@
             }
         %>
         
-        <p><a href="index.jsp">Return to Home Page</a></p>
+        <p><a href="homeEx1.jsp">Return to Example 1 Home</a></p>
     </body>
 </html>

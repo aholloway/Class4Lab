@@ -18,8 +18,8 @@ import javax.servlet.http.HttpServletResponse;
  * @author Drew
  */
 @WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
-public class CalculatorServlet extends HttpServlet {
-    private static final String destination = "page2.jsp";
+public class RectangleAreaCalculatorServlet extends HttpServlet {
+    private static final String destination = "/page2.jsp";
 
     /**
      * Processes requests for both HTTP
@@ -35,12 +35,9 @@ public class CalculatorServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String strX = request.getParameter("x").toString();
-        String strY = request.getParameter("y").toString();
-        
         
         try {
-            // We can retrieve these from named form elements or as QueryString parameters (in URL)
+         
             String x = request.getParameter("x");
             // But we can store them in the request object as "attributes"
             request.setAttribute("x", x);
