@@ -42,21 +42,18 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
             
             
             String y = request.getParameter("y");
-            request.setAttribute("area", Integer.parseInt(x)*Integer.parseInt(y));
+            
+            int area = Integer.parseInt(x)*Integer.parseInt(y);
+            
+            System.out.println(area);
+            System.out.println(x);
+            System.out.println(y);
+            request.setAttribute("area", area);
               
             RequestDispatcher dispatcher =
                         getServletContext().getRequestDispatcher(destination);
                     dispatcher.forward(request, response);
-            /* TODO output your page here. You may use following sample code. */
-            /*out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet CalculatorServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GreetingServlet at " + request.getContextPath() + "</h1>");
-            out.println("<h1>Your answer is  " + Integer.parseInt(strX) * Integer.parseInt(strY) + "</h1>");
-            out.println("</body>");
-            out.println("</html>");*/
+            
         } finally {            
             out.close();
         }

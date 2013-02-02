@@ -17,6 +17,10 @@
         <br>
         <%
             Object area = request.getParameter("area");
+            System.out.println(area);
+            System.out.println(request.getParameter("area"));
+
+
 
             out.println("<p>The area is " + area + "</p>");
 
