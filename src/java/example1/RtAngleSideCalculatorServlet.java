@@ -7,6 +7,7 @@ package example1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashSet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,39 +49,30 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
             
             String strC = (String)request.getParameter("c");
             
-            int nullCount=0;
-            char nullParam=' ';
+            int emptyCount=0;
+            char emptyParam=' ';
             double a = 0.0;
             double b = 0.0;
             double c = 0.0;
             
-            Object objC=request.getParameter("c");
-            if (objC==null){
-                nullParam='a';
-                nullCount++; 
-                System.out.println("objC is null");
-                
-            }
-            
-            
             // need to determine which parameters are not null
-            if (strA==null){
-                nullParam='a';
-                nullCount++; 
+            if (strA.isEmpty()){
+                emptyParam='a';
+                emptyCount++; 
                 System.out.println("strA is null");
                 
             }
             
-            if (strB==null){
-                nullParam='b';
-                nullCount++;  
+            if (strB.isEmpty()){
+                emptyParam='b';
+                emptyCount++;  
                 System.out.println("strB is null");
                 
             }
             
-            if (strC==null){
-                nullParam='c';
-                nullCount++;  
+            if (strC.isEmpty()){
+                emptyParam='c';
+                emptyCount++;  
                 System.out.println("strC is null");
             }
             
@@ -91,12 +83,12 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
             if (strC==null){
                 System.out.println("strC is null");
             }
-            System.out.println("nullparam: "+nullParam);
-            System.out.println("nullCount: " +nullCount);
+            System.out.println("nullparam: "+emptyParam);
+            System.out.println("emptyCount: " +emptyCount);
             
-            // if null count does not equal 2, then the wrong number of parameters
+            // if emptyCount does not equal 1, then the wrong number of parameters
             // were entered
-            if (nullCount!=2){
+            if (emptyCount!=1){
                 forward(request,response);
             } else {
 
@@ -108,13 +100,14 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
 
                 double sideLength = 0.0;
                 
-                switch (nullParam){
+                switch (emptyParam){
                     // solve for a
                     // a = sq rt ( c^2 - b^2 )
                     case 'a':
                         b = Double.valueOf(strB);
                         c = Double.valueOf(strC);
                         sideLength = Math.sqrt(Math.pow(c,2)- Math.pow(b, 2));
+                        request.setAttribute("missingSideName","a");                     
                     break;
                     // solve for b
                     // b = sq rt ( c^2 - a^2 )
@@ -122,6 +115,7 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
                         a = Double.valueOf(strA);
                         c = Double.valueOf(strC);
                         sideLength = Math.sqrt(Math.pow(c,2)- Math.pow(a, 2));
+                        request.setAttribute("missingSideName","b");
                     break;
                     // solve for c
                     // c = sq rt ( a^2 + b^2 )
@@ -129,6 +123,7 @@ public class RtAngleSideCalculatorServlet extends HttpServlet {
                         a = Double.valueOf(strA);
                         b = Double.valueOf(strB);
                         sideLength = Math.sqrt(Math.pow(a,2) + Math.pow(b, 2));
+                        request.setAttribute("missingSideName","c");
                     break;
                         
                     

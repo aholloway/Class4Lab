@@ -46,8 +46,24 @@
                          out.println("<p>Please select only two sides and I "
                             + "will solve for the thrid</p>");
                      } else {
-                         out.println("<p>The length of the third side is "+
-                                 sideLength +"</p>");
+                         String missingSideName = 
+                                 (String)request.getAttribute("missingSideName");
+                         if (missingSideName=="a"){
+                             out.println("<p>If side b is length "+request.getParameter("b")+
+                                     " and side c is length " + request.getParameter("c") +
+                                     " then side a will be length" + sideLength + "</p>");
+                         }
+                         if (missingSideName=="b"){
+                             out.println("<p>If side a is length "+request.getParameter("a")+
+                                     " and side c is length " + request.getParameter("c") +
+                                     " then side b will be length" + sideLength + "</p>");
+                         }
+                         if (missingSideName=="c"){
+                             out.println("<p>If side a is length "+request.getParameter("a")+
+                                     " and side b is length " + request.getParameter("b") +
+                                     " then side c will be length" + sideLength + "</p>");
+                         }
+                         
                      }
                      
                 break;
