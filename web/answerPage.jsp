@@ -17,19 +17,14 @@
         <br>
         <%
             
-            //System.out.println(area);
-            System.out.println(request.getParameter("area"));
+
             Object x = request.getParameter("x");
             Object y = request.getParameter("y");
-            out.println("<p>The value of x is " + x + "</p>");
-            out.println("<p>The value of y is " + y + "</p>");
-            Object area = request.getParameter("area");
-            Object areas= request.getParameter("areas");
-            System.out.println(areas.toString());
 
-
-
-            out.println("<p>The area is " + area + "</p>");
+            Object area = request.getAttribute("area");
+            
+            out.println("<p>A rectangle with length " + x + " and width " + y + 
+                    " will have an area of " + area + "</p>");
 
         %>
 

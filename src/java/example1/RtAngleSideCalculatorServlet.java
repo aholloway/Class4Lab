@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Drew
  */
 @WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
-public class RectangleAreaCalculatorServlet extends HttpServlet {
+public class RtAngleSideCalculatorServlet extends HttpServlet {
     private static final String destination = "/answerPage.jsp";
 
     /**

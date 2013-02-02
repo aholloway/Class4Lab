@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author Drew
  */
 @WebServlet(name = "CalculatorServlet", urlPatterns = {"/CalculatorServlet"})
-public class RectangleAreaCalculatorServlet extends HttpServlet {
+public class CircleAreaCalculatorServlet extends HttpServlet {
     private static final String destination = "/answerPage.jsp";
 
     /**
@@ -39,11 +39,9 @@ public class RectangleAreaCalculatorServlet extends HttpServlet {
         
         try {
          
-            String x = request.getParameter("x");
+            String r = request.getParameter("r");
             
-            String y = request.getParameter("y");
-            
-            int area = Integer.parseInt(x)*Integer.parseInt(y);
+            double area = 3.14159265359*Math.pow(Double.parseDouble(r),2);
                   
             request.setAttribute("area", area);
               
