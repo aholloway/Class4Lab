@@ -34,7 +34,7 @@
         </form>
         
         </br>
-        
+        <hr>
         <img border="0" src="images/circle.jpg" alt="Circle" width="228" height="228">
         
         <p>Enter r to get the area of a circle!</p>
@@ -47,7 +47,7 @@
         </form>
         
         </br>
-        
+        <hr>
         <img border="0" src="images/Rt Triangle.PNG" alt="Rt Triangle" width="304" height="228">
         
         <p>Enter 2 of the below to get the value of the third side!</p>
